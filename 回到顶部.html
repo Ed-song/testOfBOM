@@ -169,15 +169,27 @@
 		window.onload=function(){
 			var oBtn=document.getElementById("btn");
 			var timer=null;
+			var bsys=true;
+			//当用户手动滚动的时候,停止"回到顶部"的脚本执行
+			window.onscroll=function(){
+			       if(!bsys){
+			         clearInterval(timer);
+			       }
+			       bsys=false;
+			};
+			/////////////////////
+			/////点击则以一个速度回到顶部
 			oBtn.onclick=function(){
 				timer=setInterval(function(){
 		var scrollTop=document.documentElement.scrollTop||document.body.scrollTop;
 		        if(scrollTop==0){
 					clearInterval(timer);
 				};
+				bsys=true;
+				//设置一个返回顶部的速度
 		        var iSpeed=Math.floor(-scrollTop)/8;
 		        document.documentElement.scrollTop=iSpeed+scrollTop;
-				},30)
+				},30);
 			}
 		}
 	</script>
