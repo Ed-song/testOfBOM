@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>DOM操作</title>
+		<script>
+			document.onclick=function(ev){
+				//ps:chrome下两种方案都可以
+			   //1.IE,所有版本,function(空)
+				      //alert(event.clientX+','+event.clientY)
+			   //2.FF,function(event),event还可以换成自定义参量  eg,ev,IE9以下方法不行
+			          //  alert(event.clientX+','+event.clientY)
+			   //下面,我们通过一个if语句来囊括两者情况
+			  /* 3.if(!ev){
+			   	alert(event.clientX+','+event.clientY);
+			   }
+			   else{
+			   	alert(ev.clientX+','+ev.clientY);
+			   }*/
+			  //4.下面才是值得推荐的方案
+			  var oEvent=ev||event;
+			  alert(oEvent.clientX+','+oEvent.clientY);
+			}
+		</script>
+	</head>
+	<body>
+	</body>
+</html>
