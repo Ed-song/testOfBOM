@@ -16,20 +16,20 @@
 				document.onkeydown=function(ev){
 					var oDiv=document.getElementById("div");
 					var oEvent=ev||event;
-				if(oEvent.keyCode==39){
-					oDiv.style.left=oDiv.offsetLeft+10+'px';
-				}
-				if(oEvent.keyCode==37){
-					oDiv.style.left=oDiv.offsetLeft-10+'px';
-				}
-				if(oEvent.keyCode==38){
-					oDiv.style.top=oDiv.offsetTop-10+'px';
-				}
-				if(oEvent.keyCode==40){
-					oDiv.style.top=oDiv.offsetTop+10+'px';
-				}
-				//alert(oEvent.keyCode);这里获取按键的编码值
-				}
+					if(oEvent.keyCode==39){
+						oDiv.style.left=oDiv.offsetLeft+10+'px';
+					}
+					if(oEvent.keyCode==37){
+						oDiv.style.left=oDiv.offsetLeft-10+'px';
+					}
+					if(oEvent.keyCode==38){
+						oDiv.style.top=oDiv.offsetTop-10+'px';
+					}
+					if(oEvent.keyCode==40){
+						oDiv.style.top=oDiv.offsetTop+10+'px';
+					}
+					//alert(oEvent.keyCode);这里获取按键的编码值
+					}
 			}
 		</script>
 	</head>
