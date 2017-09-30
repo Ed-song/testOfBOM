@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>BOM操作</title>
+		<style>
+			*{
+				padding: 0;
+				margin: 0;
+				list-style: none;
+			}
+		</style>
+		<script>
+			window.onload=function(){
+				var oText1=document.getElementById("text1");
+				oText1.onkeydown=function(ev){
+					var oEv=ev||event;
+					//0 48  96
+					//9 57  105
+					if(oEv.keyCode!=8&&(oEv.keyCode<48||(oEv.keyCode>57&&oEv.keyCode<96)||oEv.keyCode>105)){
+						return false;
+					}
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<input type="text" id="text1">
+	</body>
+</html>
