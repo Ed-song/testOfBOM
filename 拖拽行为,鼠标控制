@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>BOM操作</title>
+		<style>
+			*{
+				padding: 0;
+				margin: 0;
+				list-style: none;
+			}
+			div{
+				width: 100px;
+				height: 100px;
+				background: red;
+				position: absolute;
+			}
+		</style>
+		<script>
+			window.onload=function(){
+				var oDiv=document.getElementById("div");
+				var disX=disY=0;
+				oDiv.onmousedown=function(ev){
+					var oEv=ev||event;
+					disX=oEv.clientX-oDiv.offsetLeft;
+					disY=oEv.clientY-oDiv.offsetTop;
+					
+					document.onmousemove=function(ev){
+					var oEv=ev||event;
+					var l=oEv.clientX-disX;
+					var r=oEv.clientY-disY;
+					if(l<0){
+						l=0;
+					}
+					else if(l>document.documentElement.clientWidth-oDiv.offsetWidth){
+						l=document.documentElement.clientWidth-oDiv.offsetWidth
+					}
+					if(r<0){
+						r=0;
+					}
+					else if(r>document.documentElement.clientHidth-oDiv.offsetHidth){
+						r=document.documentElement.clientHidth-oDiv.offsetHidth
+					}
+					oDiv.style.left=l+'px';
+					oDiv.style.top=r+'px';
+				};
+					document.onmouseup=function(){
+					document.onmousemove=null;	
+					document.onmouseup=null;
+					};
+				};
+				
+				
+			}
+		</script>
+	</head>
+	<body>
+		<div id="div"></div>
+	</body>
+</html>
