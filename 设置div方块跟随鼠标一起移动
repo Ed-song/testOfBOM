@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>DOM操作</title>
+		<style>
+			body{
+				height: 2000px;
+			}
+			#div2{
+				width: 100px;
+				height: 100px;
+				background: #0f0;
+				position: absolute;
+			}
+		</style>
+		<script>
+			window.onresize=document.onmousemove=function(ev){
+				var oDiv2=document.getElementById("div2");
+				var oEvent=ev||event;
+				var scrollTop=document.documentElement.scrollTop;
+				oDiv2.style.left=oEvent.clientX+'px';
+				oDiv2.style.top=oEvent.clientY+scrollTop+'px';
+			}
+		</script>
+	</head>
+	<body>
+		<div id="div2"></div>
+	</body>
+</html>
